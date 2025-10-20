@@ -15,9 +15,9 @@ public class DeliveryApp {
     private static final List<Parcel> allParcels = new ArrayList<>();
     private static final List<Trackable> trackableParcels = new ArrayList<>();
 
-    private static ParcelBox<StandardParcel> standardBox = new ParcelBox<>(100);
-    private static ParcelBox<FragileParcel> fragileBox = new ParcelBox<>(100);
-    private static ParcelBox<PerishableParcel> perishableBox = new ParcelBox<>(100);
+    private static final ParcelBox<StandardParcel> standardBox = new ParcelBox<>(100);
+    private static final ParcelBox<FragileParcel> fragileBox = new ParcelBox<>(100);
+    private static final ParcelBox<PerishableParcel> perishableBox = new ParcelBox<>(100);
 
     public static void main(String[] args) {
         boolean running = true;
