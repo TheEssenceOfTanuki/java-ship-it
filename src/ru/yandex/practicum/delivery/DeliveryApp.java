@@ -23,25 +23,25 @@ public class DeliveryApp {
         boolean running = true;
         while (running) {
             showMenu();
-            int choice = Integer.parseInt(scanner.nextLine());
+            String choice = scanner.nextLine();
 
             switch (choice) {
-                case 1:
+                case "1":
                     addParcel();
                     break;
-                case 2:
+                case "2":
                     sendParcels();
                     break;
-                case 3:
+                case "3":
                     calculateCosts();
                     break;
-                case 4:
+                case "4":
                     reportStatus();
                     break;
-                case 5:
+                case "5":
                     showContentOfTheBox();
                     break;
-                case 0:
+                case "0":
                     running = false;
                     break;
                 default:
@@ -63,14 +63,14 @@ public class DeliveryApp {
     // реализуйте методы ниже
 
     private static void addParcel() {
-        int type;
+        String type;
         Parcel parcel = null;
 
         while (true) {
             System.out.println("Укажите тип посылки: 1 — стандартная, 2 — хрупкая, 3 — скоропортящаяся");
-            type = Integer.parseInt(scanner.nextLine());
+            type = scanner.nextLine();
 
-            if (type >= 1 && type <= 3) {
+            if (type.equals("1") || type.equals("2") || type.equals("3")) {
                 break;
             } else {
                 System.out.println("Неверный тип посылки. Доступные варианты: 1, 2, 3. Попробуйте снова.");
@@ -97,16 +97,16 @@ public class DeliveryApp {
         int sendDay = Integer.parseInt(scanner.nextLine());
 
         switch (type) {
-            case 1:
+            case "1":
                 parcel = new StandardParcel(description, weight, deliveryAdress, sendDay);
                 standardBox.addParcel((StandardParcel) parcel);
                 break;
-            case 2:
+            case "2":
                 parcel = new FragileParcel(description, weight, deliveryAdress, sendDay);
                 fragileBox.addParcel((FragileParcel) parcel);
                 trackableParcels.add((Trackable) parcel);
                 break;
-            case 3:
+            case "3":
                 System.out.println("Введите срок хранения(дни): ");
                 int timeToLive = Integer.parseInt(scanner.nextLine());
                 parcel = new PerishableParcel(description, weight, deliveryAdress, sendDay, timeToLive);
@@ -152,16 +152,16 @@ public class DeliveryApp {
 
     private static void showContentOfTheBox() {
         System.out.println("Укажите тип коробки: 1 — стандартная, 2 — хрупкая, 3 — скоропортящаяся");
-        int type = Integer.parseInt(scanner.nextLine());
+        String type = scanner.nextLine();
 
         switch (type) {
-            case 1:
+            case "1":
                 standardBox.printAllContent();
                 break;
-            case 2:
+            case "2":
                 fragileBox.printAllContent();
                 break;
-            case 3:
+            case "3":
                 perishableBox.printAllContent();
                 break;
             default:

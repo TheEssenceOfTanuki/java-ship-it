@@ -2,10 +2,10 @@ package ru.yandex.practicum.delivery.parsel;
 
 public abstract  class Parcel {
 
-protected String description;
-protected int weight;
-protected String deliveryAddress;
-protected int sendDay;
+    protected String description;
+    protected int weight;
+    protected String deliveryAddress;
+    protected int sendDay;
 
 public Parcel(String description, int weight, String deliveryAddress, int sendDay) {
     this.description = description;
